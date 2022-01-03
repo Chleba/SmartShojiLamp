@@ -1,5 +1,30 @@
 # SmartShojiLamp
-Smart Shoji Lamp with temperature sensor, LED matrix &amp; display
+Smart Shoji Lamp with temperature sensor, LED matrix &amp; 0.97" display.
+Smart Shoji Lamp have MQTT implemented for Home Assistant JSON light protocol.
+
+## Home Assistant configuration.yaml
+```
+light:
+  platform: mqtt
+  name: 'Smart Shoji'
+  schema: json
+  state_topic: 'office/rgb1/light'
+  command_topic: 'office/rgb1/light/set'
+  brightness: true
+  rgb: true
+
+sensor:
+  - platform: mqtt
+    name: 'Temperature'
+    state_topic: 'office/sensor1'
+    unit_of_measurement: 'C'
+    value_template: '{{ value_json.temperature }}'
+  - platform: mqtt
+    name: 'Humidity'
+    state_topic: 'office/sensor1'
+    unit_of_measurement: '%'
+    value_template: '{{ value_json.humidity }}'
+```
 
 ## Used HW
 * NodeMCU ESP8266 dev board (or any esp8266)
