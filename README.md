@@ -1,6 +1,7 @@
 # SmartShojiLamp
 Smart Shoji Lamp with temperature sensor, LED matrix &amp; 0.97" display.
 Smart Shoji Lamp have MQTT implemented for Home Assistant JSON light protocol.
+![SmartShoji](example.jpg)
 
 ## Home Assistant configuration.yaml
 ```
